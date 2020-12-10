@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="col-md-6 offset-5">
+    <div class='logoImg'></div>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-6 offset-3">
+    <h1 class="heading">MISASHRI DEVELOPERS</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="col-md-6 offset-3">
+    <div class="card">
+      <h1 class="center">Login</h1>
+      <hr>
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <i class="fa fa-user icon"></i>
+          <label style="font-style: bold; color: black; font-weight: 300;" for="userName">UserName:</label>
+          <input type="text" id="userName" class="form-control" formControlName="userName"
+            placeholder="Enter user name">
+          <p class="alert alert-danger"
+            *ngIf="isSubmitted && formControls.userName.errors?.required && formControls.userName.touched">UserName is
+            Required</p>
+          <p class="alert alert-danger" *ngIf="formControls.userName.errors?.pattern">Special characters(such as @ # ! etc..) are not allowed</p>
+        </div>
+        <div class="form-group">
+          <i class="fa fa-key icon"></i>
+          <label style="font-style: bold; color: black; font-weight: 300;" for="password">Password:</label>
+          <input type="password" id="password" class="form-control" formControlName="password"
+            placeholder="Enter password">
+          <p class="alert alert-danger"
+            *ngIf="isSubmitted && formControls.password.errors?.required && formControls.password.touched">Password is
+            Required</p>
+          <p class="alert alert-danger" *ngIf="formControls.password.errors?.minlength">Password should be minimum 6
+            characters!</p>
+          <p class="alert alert-danger" *ngIf="formControls.password.errors?.maxlength">Password should be maximum 12
+            characters!</p>
+        </div>
+
+        <div class="form-group">
+          <ul>
+            <li routerLinkActive="active">
+              <a class="reset" href="/user">Reset Password!!</a>
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-info form-control" type="submit">Login</button>
+      </form>
+      <br />
+      <div class="text-danger" *ngIf="errorMessage!=null">{{errorMessage}}</div>
+    </div>
+  </div>
+</div>
