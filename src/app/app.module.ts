@@ -6,6 +6,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { LoginComponent } from './admin-view/login/login.component';
 import { RoutingModule } from './routing/routing.module';
+import { BlogViewComponent } from './user-view/blog-view/blog-view.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { RoutingModule } from './routing/routing.module';
     UserViewComponent,
     AdminViewComponent,
     LoginComponent,
+    BlogViewComponent,
   ],
   imports: [
     BrowserModule,

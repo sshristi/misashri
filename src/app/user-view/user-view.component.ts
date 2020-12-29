@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from '../../app/theme-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-view',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserViewComponent implements OnInit {
 
-  constructor() { }
+  isThemeDark: Observable<boolean>;
 
-  ngOnInit(): void {
+  constructor(
+    private themeService: ThemeService
+  ) {}
+
+  ngOnInit() {
+    this.isThemeDark = this.themeService.isThemeDark;
   }
 
+  toggleDarkTheme(checked) {
+    this.themeService.setDarkTheme(checked.checked);
+    // console.log("checked >", this.isThemeDark);
+    console.log("checked >", checked.checked);
+  }
+   
 }
